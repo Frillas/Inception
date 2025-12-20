@@ -1,6 +1,7 @@
 FROM nginx:latest
 
-COPY certificat.sh /certificat.sh
+COPY conf/nginx.conf /etc/nginx/nginx.conf
+COPY tools/certificat.sh /certificat.sh
 
 RUN chmod +x certificat.sh
 
