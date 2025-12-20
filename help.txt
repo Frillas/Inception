@@ -1,0 +1,9 @@
+https://blog.stephane-robert.info/docs/conteneurs/images-conteneurs/
+https://github.com/stephrobert/containers-training/tree/main
+https://guides.viren070.me/selfhosting/docker
+https://mindsers.blog/fr/post/configurer-https-nginx-docker-lets-encrypt/
+https://domopi.eu/comment-administrer-une-base-de-donnees-avec-adminer/
+https://docs.techdox.nz/authentik/
+https://blog.laclefdigitale.fr/installation-de-nginx-sous-docker/
+https://github.com/mjstealey/wordpress-nginx-docker?tab=readme-ov-file
+https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-docker-compose
