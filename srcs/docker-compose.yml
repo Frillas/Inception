@@ -4,4 +4,25 @@ services:
     ports:
       - 80:80
       - 443:443
-    restart: always
+    restart: unless-stopped
+    depends_on:
+      - wordpress
+    volumes:
+      - wp_volume:/var/www/html
+    networks:
+      - inception-network
+
+  wordpress:
+    build: ./requirements/wordpress
+    depends_on:
+      - mariadb
+    env_file: .env
+    volumes:
+      - wp_volume:/var/www/html
+    networks:
+      - inception-network
+    restart: unless-stopped
+
+networks:
+  inception-network:
+    driver: bridge
