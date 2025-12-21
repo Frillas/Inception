@@ -23,6 +23,19 @@ services:
       - inception-network
     restart: unless-stopped
 
+  mariadb:
+    build: ./requirements/mariadb
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - inception-network
+
+volumes:
+  dbdata:
+  wp_volume:
+
 networks:
   inception-network:
     driver: bridge
