@@ -2,15 +2,14 @@ services:
   nginx:
     build: ./requirements/nginx
     ports:
-      - 80:80
       - 443:443
-    restart: unless-stopped
     depends_on:
       - wordpress
     volumes:
       - wp_volume:/var/www/html
     networks:
-      - inception-network
+      - inception
+    restart: always
 
   wordpress:
     build: ./requirements/wordpress
@@ -20,22 +19,22 @@ services:
     volumes:
       - wp_volume:/var/www/html
     networks:
-      - inception-network
-    restart: unless-stopped
+      - inception
+    restart: always
 
   mariadb:
     build: ./requirements/mariadb
-    restart: unless-stopped
     env_file: .env
     volumes:
       - dbdata:/var/lib/mysql
     networks:
       - inception-network
+    restart: always
 
 volumes:
   dbdata:
   wp_volume:
 
 networks:
-  inception-network:
+  inception:
     driver: bridge
