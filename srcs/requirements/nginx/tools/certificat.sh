@@ -1,5 +1,7 @@
 #!/bin/sh
 
+mkdir -p /etc/nginx/ssl
+
 if [ ! -f /etc/nginx/ssl/nginx.crt ]; then
 	openssl req -x509 -nodes -days 365 \
 		-newkey rsa:2048 \

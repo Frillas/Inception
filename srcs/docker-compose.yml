@@ -33,7 +33,18 @@ services:
 
 volumes:
   db_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/aroullea/data/mariadb
+      o: bind
+
   wp_volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/aroullea/data/wordpress
+      o: bind
 
 networks:
   inception:
