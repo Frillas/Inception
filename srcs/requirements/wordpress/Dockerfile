@@ -18,6 +18,8 @@ RUN apk update && apk add --no-cache \
     curl \
     mariadb-client
 
+RUN sed -i 's|^listen = .*|listen = 9000|' /etc/php82/php-fpm.d/www.conf
+
 RUN ln -s /usr/bin/php82 /usr/bin/php
 
 COPY conf/php.ini /etc/php82/conf.d/99-memory.ini

@@ -5,6 +5,7 @@ RUN apk update && apk add --no-cache openssl
 RUN mkdir -p /etc/nginx/ssl
 
 COPY conf/nginx.conf /etc/nginx/nginx.conf
+COPY conf/conf.d/server.conf /etc/nginx/conf.d/server.conf
 COPY tools/certificat.sh /certificat.sh
 
 RUN chmod +x certificat.sh
