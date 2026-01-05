@@ -40,4 +40,13 @@ if [ ! -f wp-config.php ]; then
         --allow-root
 fi
 
+# Installer le plugin Redis dans WordPress
+wp plugin install redis-cache --activate --allow-root
+
+# redis est sur le reseau docker, sous le nom redis
+wp config set WP_REDIS_HOST redis --allow-root
+wp config set WP_REDIS_PORT 6379 --allow-root
+
+wp redis enable --allow-root
+
 exec php-fpm82 -F

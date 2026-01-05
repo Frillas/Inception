@@ -31,6 +31,14 @@ services:
       - inception
     restart: always
 
+  redis:
+    build: ./requirements/bonus/redis
+    volumes:
+      - redis_volume:/data
+    networks:
+      - inception
+    restart: always
+
 volumes:
   db_data:
     driver: local
@@ -44,6 +52,13 @@ volumes:
     driver_opts:
       type: none
       device: /home/aroullea/data/wordpress
+      o: bind
+
+  redis_volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/aroullea/data/redis
       o: bind
 
 networks:
