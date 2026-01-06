@@ -39,6 +39,20 @@ services:
       - inception
     restart: always
 
+  ftp:
+    image: delfer/alpine-ftp-server
+    container_name: ftp
+    env_file:
+      - .env
+    ports:
+      - "2121:21"
+      - "21000-21010:21000-21010"
+    volumes:
+      - wp_volume:/home/ftpuser
+    networks:
+      - inception
+    restart: always
+
 volumes:
   db_data:
     driver: local
