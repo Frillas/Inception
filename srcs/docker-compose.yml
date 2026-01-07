@@ -40,7 +40,7 @@ services:
     restart: always
 
   ftp:
-    image: delfer/alpine-ftp-server
+    build: ./requirements/bonus/ftp
     container_name: ftp
     env_file:
       - .env
