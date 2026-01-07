@@ -1,20 +1,14 @@
-FROM nginx:alpine3.22
+FROM alpine:3.22
 
 RUN apk update && apk add --no-cache nginx
+
+RUN mkdir -p /run/nginx /var/www/html
 
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 COPY html/ /var/www/html/
 
-RUN adduser -D -g 'www' www \
-    && mkdir -p /var/cache/nginx /var/run /var/log/nginx \
-    && chown -R www:www \
-        /var/www/html \
-        /var/cache/nginx \
-        /var/run \
-        /var/log/nginx
+RUN chown -R nginx:nginx /var/www/html /run/nginx
 
-EXPOSE 8080
-
-USER www
+EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
