@@ -2,7 +2,7 @@
 set -e
 
 # Attendre que MariaDB soit disponible AVEC authentification
-until mysqladmin ping \
+until /usr/bin/mariadb-admin ping \
     -h"$MYSQL_HOST" \
     -u"$MYSQL_USER" \
     -p"$MYSQL_PASSWORD" \
