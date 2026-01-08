@@ -1,0 +1,30 @@
+# ======================
+# MariaDB configuration
+# ======================
+MYSQL_HOST=mariadb
+MYSQL_DATABASE=wordpress
+MYSQL_USER=wpuser
+MYSQL_PASSWORD=wp_password
+MYSQL_ROOT_PASSWORD=root_password
+
+# ======================== 
+# WordPress configuration 
+# ========================
+WP_URL=aroullea.42.fr
+WP_TITLE=Inception
+
+WP_ADMIN_USER=wp_supervisor
+WP_ADMIN_PASSWORD=superpassword
+WP_ADMIN_EMAIL=aroullea@student.42angouleme.fr
+
+WP_USER=john
+WP_USER_PASSWORD=password
+WP_USER_EMAIL=john@example.com
+
+# ==================
+# ftp configuration
+# ==================
+USERS=ftpuser|FTPp@ssw0rd4242|1000|1000
+ADDRESS=aroullea.42.fr
+MIN_PORT=21000
+MAX_PORT=21010
