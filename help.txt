@@ -8,18 +8,5 @@ https://blog.laclefdigitale.fr/installation-de-nginx-sous-docker/
 https://github.com/mjstealey/wordpress-nginx-docker?tab=readme-ov-file
 https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-docker-compose
 https://blog.microlinux.fr/formation-docker-13-compose/
-
-redis:
-To set up a Redis cache using Docker, start by pulling the Redis image with docker pull redis.
- Then, run a Redis container using the command docker run --name my-redis -p 6379:6379 -d redis to expose port 6379 on the host machine and run the container in detached mode.
- For persistent data storage across container restarts, mount a host directory to the container’s /data directory using the -v flag, such as docker run -d --name redis-container -v /path/to/your/host/directory:/data redis:latest.
- Alternatively, use Docker Compose with a named volume defined in a docker-compose.yml file to manage persistence.
-
-For applications using .NET, install the required NuGet packages Microsoft.Extensions.Caching.StackExchangeRedis and StackExchange.Redis.
- In the application's Startup.cs or Program.cs, configure the Redis connection using services.AddStackExchangeRedisCache(options => { options.Configuration = Configuration.GetConnectionString("Redis"); }).
- Ensure the appsettings.json file includes a connection string like "ConnectionStrings": { "Redis": "localhost:6379" }.
- For Go applications, use the go-redis/redis library and initialize the client with Addr: "redis:6379" in a Docker Compose setup where both Redis and the Go service are on the same network.
-
-To enhance security and manageability, use Docker Compose to define both Redis and application services in a single configuration file. For example, define a redis service with image: redis:alpine and ports: - "6379:6379", and link it to the application service.
- For production-like setups, consider using Redis with authentication and persistence by configuring redis-server with --requirepass and --save options.
- For advanced scenarios, a Redis cluster can be used to distribute data across multiple nodes, improving scalability and fault tolerance.
+https://github.com/netdata/netdata/blob/master/packaging/docker/README.md
+https://hub.docker.com/r/google/cadvisor
