@@ -75,6 +75,23 @@ services:
       - inception
     restart: always
 
+  netdata:
+    build: ./requirements/bonus/netdata
+    container_name: netdata
+    ports:
+      - "19999:19999"
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - apparmor:unconfined
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - inception
+    restart: always
+
 volumes:
   db_data:
     driver: local
