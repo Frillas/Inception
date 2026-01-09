@@ -128,8 +128,24 @@ To restart the containers
 make restart
 ```
 -> Entrypoints are restarted
--> Equivalent to 
+
+To display the logs
 ```bash
-make stop
-make start
+make logs
+```
+
+To display the list of running containers
+```bash
+make ps
+```
+
+To stop and removes all containers, networks and all images used in Docker Compose
+```bash
+make clean
+```
+
+To stop and removes all containers, networks, all images used in Docker Compose
+and to clean up orphaned containers from previous configurations
+```bash
+make fclean
 ```
