@@ -16,7 +16,7 @@ L’infrastructure est orchestrée via **Docker Compose**, avec :
 
 ---
 
-# Architecture globale
+### Architecture globale
 
 La stack est composée des services suivants :
 
@@ -33,7 +33,7 @@ Tous les services communiquent via un **réseau Docker bridge unique** nommé `i
 
 ---
 
-# Volumes
+### Volumes
 
 Les données critiques sont stockées dans des volumes persistants montés depuis l’hôte :
 
@@ -50,9 +50,9 @@ Ces volumes garantissent la persistance des données même après un arrêt ou u
 
 ---
 
-# Services détaillés
+### Services détaillés
 
-### Nginx
+#### Nginx
 - Sert de point d’entrée unique
 - Gère les connexions HTTPS (SSL/TLS)
 - Fait office de reverse proxy vers WordPress (PHP-FPM)
@@ -60,7 +60,7 @@ Ces volumes garantissent la persistance des données même après un arrêt ou u
 
 ---
 
-### WordPress
+#### WordPress
 - CMS écrit en PHP
 - Exécuté avec **PHP-FPM**
 - Connecté à MariaDB pour le stockage des données
@@ -69,7 +69,7 @@ Ces volumes garantissent la persistance des données même après un arrêt ou u
 
 ---
 
-### MariaDB
+#### MariaDB
 - Base de données relationnelle
 - Stocke l’ensemble des données WordPress
 - Initialisation automatique via script d’entrypoint
@@ -78,7 +78,7 @@ Ces volumes garantissent la persistance des données même après un arrêt ou u
 
 ---
 
-### Redis
+#### Redis
 - Cache en mémoire haute performance
 - Utilisé par WordPress pour réduire les requêtes SQL
 - Améliore les performances globales du site
@@ -86,7 +86,7 @@ Ces volumes garantissent la persistance des données même après un arrêt ou u
 
 ---
 
-### FTP (vsftpd)
+#### FTP (vsftpd)
 - Serveur FTP pour la gestion des fichiers WordPress
 - Mode passif activé
 - Utilisateur créé dynamiquement via variables d’environnement
@@ -94,7 +94,7 @@ Ces volumes garantissent la persistance des données même après un arrêt ou u
 
 ---
 
-### Adminer
+#### Adminer
 - Interface web d’administration de la base MariaDB
 - Permet l’exécution directe de requêtes SQL
 - Se connecte au service MariaDB via le réseau Docker
@@ -102,7 +102,7 @@ Ces volumes garantissent la persistance des données même après un arrêt ou u
 
 ---
 
-### Netdata
+#### Netdata
 - Outil de monitoring temps réel
 - Visualisation :
   - CPU
@@ -113,7 +113,7 @@ Ces volumes garantissent la persistance des données même après un arrêt ou u
 
 ---
 
-### Static Website
+#### Static Website
 - Site web statique (HTML / CSS / JavaScript)
 - Servi via Nginx
 - Site web simple qui les services du projet
