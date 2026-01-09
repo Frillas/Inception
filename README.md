@@ -16,7 +16,7 @@ L’infrastructure est orchestrée via **Docker Compose**, avec :
 
 ---
 
-## Architecture globale
+# Architecture globale
 
 La stack est composée des services suivants :
 
@@ -33,7 +33,7 @@ Tous les services communiquent via un **réseau Docker bridge unique** nommé `i
 
 ---
 
-## Volumes
+# Volumes
 
 Les données critiques sont stockées dans des volumes persistants montés depuis l’hôte :
 
@@ -50,7 +50,7 @@ Ces volumes garantissent la persistance des données même après un arrêt ou u
 
 ---
 
-## Services détaillés
+# Services détaillés
 
 ### Nginx
 - Sert de point d’entrée unique
