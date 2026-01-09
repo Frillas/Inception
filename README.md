@@ -105,25 +105,31 @@ All services communicate over a **single Docker bridge network** called `incepti
 To start and run all the services 
 ```bash
 make or make up
+```
 
 To stop and delete the containers and the network created by Docker Compose
 ```bash
 make down
+```
 
 To stop the containers without removing them and without removing the network
 ```bash
 make stop
+```
 
 To start existing containers
 ```bash
 make start
+```
 -> Only works after a stop
 
 To restart the containers
 ```bash
 make restart
+```
 -> Entrypoints are restarted
 -> Equivalent to 
 ```bash
 make stop
 make start
+```
