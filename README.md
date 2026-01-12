@@ -13,6 +13,52 @@ The infrastructure is orchestrated via **Docker Compose**, with:
 - persistent volumes
 - independent but interconnected services
 
+### Project design and technical choices
+
+#### Use of Docker
+
+This project is entirely built using **Docker** in order to ensure service isolation, reproductability and portability
+
+Each service runs inside it's **own dedicated container**, built from a custom **Dockerfile** based on Alpine Linux.
+
+**Docker Compose** is used as a orchestration tool to:
+- define services and their dependencies
+- manage a dedicated bridge network
+- configure persistent volumes
+- control the lifecycle of containers
+
+This approach reflects a real-world containerized architecture, where each component is isolated, scalable and independently maintainable.
+
+#### Main design choices
+
+Several important design choices were made during the project:
+- **Alpine Linux (3.22)** was chosen for all containers due to it's:
+	- small footprint
+	- simplicity
+	- security-oriented design
+
+- **One service per container**:
+	- improves isolation
+	- simplifies debugging
+	- follows Docker best practices
+
+- **Docker volumes for persistences**:
+	- MariaDB and Wordpress data are stored outside containers
+	- ensure data survival after container recreation
+
+- **Single Docker network**:
+	- allows services to communicate using service names
+	- avoids exposing internal services unnecessarily
+
+- **Nginx as a reverse proxy**
+	- handles HTTPS traffic
+	- forwards PHP requests to Wordpress via FastCGI
+
+- **Redis as an optional cache layer**
+	- improves Wordpress performance
+ 
+The goal was to keep the infrastructure understandable and simple.
+
 ---
 
 ### Overall architecture
@@ -102,12 +148,12 @@ All services communicate over a **single Docker bridge network** called `incepti
 
 ## Instructions
 
-In /etc/hosts add
+In /etc/hosts, add this line
 ```bash
 127.0.0.1 aroullea.42.fr
 ```
 
-Then create 3 repository in
+Then create 2 repositories in
 ```bash
 /home/aroullea/data/wordpress
 /home/aroullea/data/mariadb
@@ -164,6 +210,17 @@ make fclean
 ---
 
 ## Ressources
+
+List of classic references related to the topic:
+- https://hub.docker.com/
+- https://blog.stephane-robert.info/docs/conteneurs/images-conteneurs/
+- https://blog.stackademic.com/understanding-docker-mounts-volumes-bind-mounts-and-tmpfs-f992185edc27
+- https://mindsers.blog/fr/post/configurer-https-nginx-docker-lets-encrypt/
+- https://domopi.eu/comment-administrer-une-base-de-donnees-avec-adminer/
+- https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-docker-compose
+- https://blog.microlinux.fr/formation-docker-13-compose/
+- https://github.com/netdata/netdata/blob/master/packaging/docker/README.md
+- https://hub.docker.com/r/delfer/alpine-ftp-server/
 
 During the development of this project, an AI assistant was used as a **learning and support tool**.
 

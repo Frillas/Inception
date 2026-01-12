@@ -1,5 +1,5 @@
 https://blog.stephane-robert.info/docs/conteneurs/images-conteneurs/
-https://github.com/stephrobert/containers-training/tree/main
+https://blog.stackademic.com/understanding-docker-mounts-volumes-bind-mounts-and-tmpfs-f992185edc27
 https://guides.viren070.me/selfhosting/docker
 https://mindsers.blog/fr/post/configurer-https-nginx-docker-lets-encrypt/
 https://domopi.eu/comment-administrer-une-base-de-donnees-avec-adminer/
