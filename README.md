@@ -65,7 +65,7 @@ The goal was to keep the infrastructure understandable and simple.
 
 A **virtual machine (VM)** emulates a complete operating system, including its own kernel, wich makes it heavy in terms of resources and slow to start.
 
-A **Docker container**, on the other hand:
+- A **Docker container**, on the other hand:
 	- shares the host kernel
 	- starts almost instantly
 	- consumes fewer resources
@@ -79,24 +79,24 @@ Docker allows lightweight isolation of services while keeping the system efficie
 	- suitable for non-sensitive configuration
 	- visible to the container process
 
-**Docker Secrets** are designed to handle sensitive data such as:
+- **Docker Secrets** are designed to handle sensitive data such as:
 	- passwords
 	- API keys
 	- certificates
 
-Secrets are:
+- Secrets are:
 	- stored securely
 	- mounted as files
 	- not exposed in container environment variables
 
 ### Docker Network vs Host Network
 
-A **Docker bridge network**:
+- A **Docker bridge network**:
 	- isolates containers from the host network
 	- allows containers to communicate via service names
 	- improves security by limiting exposure
 
-Using the **host network**:
+- Using the **host network**:
 	- removes network isolation
 	- exposes services directly on the host
 	- can lead to port conficts
@@ -105,17 +105,17 @@ This project uses a dedicated Docker bridge network to ensure clean services com
 
 ### Docker Volumes vs Bind Mounts
 
-**Docker volumes** are managed by Docker:
+- **Docker volumes** are managed by Docker:
 	- portable
 	- abstracted from the host filesystem
 	- recommended for production usage
 
-**Bind mounts** map a specific host directory into a container:
+- **Bind mounts** map a specific host directory into a container:
 	- direct access to host files
 	- useful for development or learning
 	- dependent on host directory structure
 
-In this project, bind mounts are used for:
+- In this project, bind mounts are used for:
 	- WordPress files
 	- MariaDB data
 
