@@ -53,7 +53,9 @@ Before starting, ensure that the following directories exist on the host:
 - Create .env file, you can find an exemple in the root of this repository.
 - Place it in /srcs
 
-All credentials are stored in the .env and the file must be placed next to the docker-compose.yml file. Typical variable include:
+All credentials are stored in the .env and the file must be placed next to the docker-compose.yml file. 
+
+Typical variable include:
     - MariaDB root password
     - WordPress database name
     - WordPress database user and password
