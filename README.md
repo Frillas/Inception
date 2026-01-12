@@ -6,7 +6,7 @@
 
 **Inception** is a Docker infrastructure project whose objective is to deploy a complete stack of interconnected services, each running in its own container, respecting security, data persistence and isolation constraints.
 
-All services are built from **the penultimate stable version of Alpine Linux, i.e. version 3.22**, without using preconfigured images.
+All services are built from **the penultimate stable version of Alpine Linux, i.e. version 3.22**, without relying on ready-to-use application images.
 
 The infrastructure is orchestrated via **Docker Compose**, with:
 - a dedicated Docker network
@@ -63,7 +63,7 @@ All services communicate over a **single Docker bridge network** called `incepti
 - High performance in-memory cache
 - Used by WordPress to reduce SQL queries
 - Improves overall site performance
-- Persistent data via dedicated volume
+- Optional data persistence via dedicated volume
 
 ---
 
@@ -95,12 +95,23 @@ All services communicate over a **single Docker bridge network** called `incepti
 
 #### Static Website
 - Static website (HTML / CSS / JavaScript)
-- Served via Nginx
+- Served via a dedicated Nginx container
 - Simple website that presents the project services
 
 ---
 
 ## Instructions
+
+In /etc/hosts add
+```bash
+127.0.0.1 aroullea.42.fr
+```
+
+Then create 3 repository in
+```bash
+/home/aroullea/data/wordpress
+/home/aroullea/data/mariadb
+```
 
 To start and run all the services 
 ```bash
@@ -149,3 +160,16 @@ and to clean up orphaned containers from previous configurations
 ```bash
 make fclean
 ```
+
+---
+
+## Ressources
+
+During the development of this project, an AI assistant was used as a **learning and support tool**.
+
+The AI was mainly used to:
+- clarify Docker and Docker Compose concepts
+- understand container lifecycle, entrypoints, signals, and volumes
+- analyze logs and runtime errors
+- review configuration files (Dockerfiles, nginx.conf, scripts)
+- provide advice on best practices
