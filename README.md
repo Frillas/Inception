@@ -59,6 +59,68 @@ Several important design choices were made during the project:
  
 The goal was to keep the infrastructure understandable and simple.
 
+## Technical comparisons
+
+### Virtual Machines vs Docker Containers
+
+A **virtual machine (VM)** emulates a complete operating system, including its own kernel, wich makes it heavy in terms of resources and slow to start.
+
+A **Docker container**, on the other hand:
+	- shares the host kernel
+	- starts almost instantly
+	- consumes fewer resources
+	- focuses on running a single application or service
+Docker allows lightweight isolation of services while keeping the system efficient and easy to manage.
+
+### Secrets vs Environment Variables
+
+**Environment variables** are commonly used to configure applications at runtime:
+	- easy to use
+	- suitable for non-sensitive configuration
+	- visible to the container process
+
+**Docker Secrets** are designed to handle sensitive data such as:
+	- passwords
+	- API keys
+	- certificates
+
+Secrets are:
+	- stored securely
+	- mounted as files
+	- not exposed in container environment variables
+
+### Docker Network vs Host Network
+
+A **Docker bridge network**:
+	- isolates containers from the host network
+	- allows containers to communicate via service names
+	- improves security by limiting exposure
+
+Using the **host network**:
+	- removes network isolation
+	- exposes services directly on the host
+	- can lead to port conficts
+
+This project uses a dedicated Docker bridge network to ensure clean services communication and controlled access.
+
+### Docker Volumes vs Bind Mounts
+
+**Docker volumes** are managed by Docker:
+	- portable
+	- abstracted from the host filesystem
+	- recommended for production usage
+
+**Bind mounts** map a specific host directory into a container:
+	- direct access to host files
+	- useful for development or learning
+	- dependent on host directory structure
+
+In this project, bind mounts are used for:
+	- WordPress files
+	- MariaDB data
+
+This choice allows easy inspection of data and helps understand peristence mechanism.
+
 ---
 
 ### Overall architecture
