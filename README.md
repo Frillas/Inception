@@ -74,7 +74,7 @@ Docker allows lightweight isolation of services while keeping the system efficie
 
 ### Secrets vs Environment Variables
 
-**Environment variables** are commonly used to configure applications at runtime:
+- **Environment variables** are commonly used to configure applications at runtime:
 	- easy to use
 	- suitable for non-sensitive configuration
 	- visible to the container process
