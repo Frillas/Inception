@@ -70,11 +70,11 @@ Add the domain to /etc/hosts:
 Start the project
 ```bash
 make
-or
+# or
 make up
 ```
 
-Stop the project(without deleting data)
+Stop the project (without deleting data)
 ```bash
 make stop
 ```
