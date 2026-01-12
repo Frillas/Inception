@@ -25,7 +25,7 @@ The project deploys a complete Docker-based infrastructure composed of the follo
 - **FTP (vsftpd)**
 	FTP server allowing file transfers to the WordPress directory.
 
-**Adminer**
+- **Adminer**
   Web interface to manage and inspect the MariaDB database.
 
 - **Netdata**
@@ -50,8 +50,7 @@ Before starting, ensure that the following directories exist on the host:
 /home/aroullea/data/mariadb
 ```
 
-- Create .env file, you can find an exemple in the root of this repository.
-- Place it in /srcs
+- Create .env file, (an example is provided at the root of the repository) and place it in the /srcs directory.
 
 All credentials are stored in the .env and the file must be placed next to the docker-compose.yml file. 
 - Typical variable include:
@@ -97,31 +96,31 @@ make fclean
 
 ## 3. Accessing the Services
 
-WordPress Website
+### WordPress Website
 - https://aroullea.42.fr
 Accessible via HTTPS only (port 443)
 
-WordPress admin panel
+### WordPress admin panel
 - https://aroullea.42.fr/wp-admin
 Requires WordPress credentials
 
-Adminer (Database administration)
+### Adminer (Database administration)
 - https://aroullea.42.fr:8081
 - Login information:
     - **system:** MySQL
     - **Server:** mariadb
-    - **Username:** value from .env
-    - **Password:** value from .env
-    - **Database:** value from .env
+    - **Username:** wpuser
+    - **Password:** wp_password
+    - **Database:** wordpress
     
-Netdata (monitoring)
+### Netdata (monitoring)
 - http://aroullea.42.fr:19999
 - Displays real-time metrics for:
     - CPU
     - Memory
     - Disk
 
-FTP Access
+### FTP Access
 
 Login and password have to be created in .env file
 In bash, write:
@@ -135,6 +134,8 @@ password: FTPp@ssw0rd4242!!
 ```
 
 FTP user home directory is shared with WordPress files
+
+---
 
 ## 4. Checking that services are running correctly
 
