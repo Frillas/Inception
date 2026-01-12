@@ -21,10 +21,10 @@ chown -R "$FTP_USER:$FTP_USER" "/home/$FTP_USER"
 echo "[FTP] User $FTP_USER created"
 
 cleanup() {
-    echo "[FTP] Received shutdown signal, stopping vsftpd..."
+    echo "[FTP] Received shutdown signal, stopping vsftpd"
     kill -TERM "$VSFTPD_PID" 2>/dev/null || true
     wait "$VSFTPD_PID" 2>/dev/null || true
-    echo "[FTP] Service stopped gracefully"
+    echo "[FTP] Service stopped"
     exit 0
 }
 

@@ -37,8 +37,6 @@ services:
   redis:
     build: ./requirements/bonus/redis
     container_name: redis
-    volumes:
-      - redis_volume:/data
     networks:
       - inception
     restart: always
@@ -58,7 +56,7 @@ services:
     restart: always
 
   website:
-    build: ./requirements/bonus/static_site
+    build: ./requirements/bonus/website
     container_name: website
     ports:
       - "8080:80"
@@ -107,13 +105,7 @@ volumes:
       device: /home/aroullea/data/wordpress
       o: bind
 
-  redis_volume:
-    driver: local
-    driver_opts:
-      type: none
-      device: /home/aroullea/data/redis
-      o: bind
-
 networks:
   inception:
+    name: inception
     driver: bridge
