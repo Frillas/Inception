@@ -70,6 +70,7 @@ A **virtual machine (VM)** emulates a complete operating system, including its o
 	- starts almost instantly
 	- consumes fewer resources
 	- focuses on running a single application or service
+
 Docker allows lightweight isolation of services while keeping the system efficient and easy to manage.
 
 ### Secrets vs Environment Variables
