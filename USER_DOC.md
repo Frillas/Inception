@@ -10,20 +10,20 @@ It is intended for users and administrators who want to run, access and verify t
 The project deploys a complete Docker-based infrastructure composed of the following services:
 
 - **Nginx**
-	Web server and HTTPS reverse proxy.
-	Handle SSL/TLS serves WordPress over port **443**
+	- Web server and HTTPS reverse proxy.
+	- Handle SSL/TLS serves WordPress over port **443**
 
 - **WordPress**
-	Content Management System (CMS) used to create and manage the website content.
+	- Content Management System (CMS) used to create and manage the website content.
 
 - **MariaDB**
-	Relational database storing all WordPress data (users, posts, settings).
+	- Relational database storing all WordPress data (users, posts, settings).
 
 - **Redis**
-	In-memory cache used by WordPress to improve performance.
+	- In-memory cache used by WordPress to improve performance.
 
 - **FTP (vsftpd)**
-	FTP server allowing file transfers to the WordPress directory.
+	- FTP server allowing file transfers to the WordPress directory.
 
 - **Adminer**
   Web interface to manage and inspect the MariaDB database.
