@@ -36,16 +36,16 @@ This directories are mounted as bind volumes inside containers to ensure data pe
 
 ### 3.2 Configuration File
 
-Each service has its own configuration directory under requirements/:
+Each service has its own configuration directory under requirements/ :
 - requirements/nginx/conf
 - requirements/mariadb/conf
 - requirements/wordpress/conf
 - requirements/bonus
 
 Configuration files include:
-	- Nginx virtual host configuration
-	- MariaDB server configuration (my.cnf)
-	- Entrypoint scripts when required
+- Nginx virtual host configuration
+- MariaDB server configuration (my.cnf)
+- Entrypoint scripts when required
 
 All images are built locally.
 
@@ -54,13 +54,13 @@ All images are built locally.
 Sensitive information is stored in a .env file located next to the docker-compose.yml file.
 
 Typical variables include:
-	- Database credentials
-	- WordPress credentials
-	- FTP user credentials
+- Database credentials
+- WordPress credentials
+- FTP user credentials
 
 The .env file is:
-	- Not commited to version control
-	- injected into containers at runtime
+- Not commited to version control
+- injected into containers at runtime
 
 This approache avoids hardcodind secrets in images or configuration files.
 
