@@ -46,8 +46,8 @@ All services run in isolated Docker containers and communicate through a private
 
 Before starting, ensure that the following directories exist on the host:
 ```bash
-/home/aroullea/data/wordpress
-/home/aroullea/data/mariadb
+sudo mkdir /home/aroullea/data/wordpress
+sudo mkdir /home/aroullea/data/mariadb
 ```
 
 - Create .env file, (an example is provided at the root of the repository) and place it in the /srcs directory.
@@ -123,6 +123,7 @@ Requires WordPress credentials
 ### FTP Access
 
 Login and password have to be created in .env file
+
 In bash, write:
 ```bash
 ftp aroullea.42.fr 2121

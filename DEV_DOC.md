@@ -28,8 +28,8 @@ The project has been developed and tested on Linux.
 Before launching the project, persistent data directories must exist on the host:
 
 ```bash
-/home/aroullea/data/wordpress
-/home/aroullea/data/mariadb
+sudo mkdir /home/aroullea/data/wordpress
+sudo mkdir /home/aroullea/data/mariadb
 ```
 
 This directories are mounted as bind volumes inside containers to ensure data persistence.

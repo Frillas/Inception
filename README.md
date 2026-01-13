@@ -218,8 +218,8 @@ In /etc/hosts, add this line
 
 Then create 2 repositories in
 ```bash
-/home/aroullea/data/wordpress
-/home/aroullea/data/mariadb
+sudo mkdir /home/aroullea/data/wordpress
+sudo mkdir /home/aroullea/data/mariadb
 ```
 
 Create .env file, (an example is provided at the root of the repository) and place it in the /srcs directory.
