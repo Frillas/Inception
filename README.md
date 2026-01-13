@@ -222,6 +222,8 @@ Then create 2 repositories in
 /home/aroullea/data/mariadb
 ```
 
+Create .env file, (an example is provided at the root of the repository) and place it in the /srcs directory.
+
 To start and run all the services 
 ```bash
 make or make up
