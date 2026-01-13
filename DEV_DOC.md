@@ -83,11 +83,11 @@ make fclean		# Full cleanup including orphan resources
 ### 4.2 Docker Compose
 
 Docker Compose is responsible for:
-	- Building images
-	- Creating containers
-	- Managing the Docker network
-	- Mounting volumes
-	- Defining services dependencies
+- Building images
+- Creating containers
+- Managing the Docker network
+- Mounting volumes
+- Defining services dependencies
 
 All services are connected to a single bridge network named inception.
 
@@ -124,9 +124,9 @@ docker network inspect inception
 
 Persistent data is handled using bind-mounted volumes.
 
-**service**	**container path**	**Host Path**
-MariaDB		/var/lib/mysql		/home/aroullea/data/mariadb
-WordPress	/vat/www/html		/home/aroullea/data/wordpress
+|**service**|**container path**|**Host Path**                 |
+|MariaDB    |/var/lib/mysql    |/home/aroullea/data/mariadb   |
+|WordPress  |/vat/www/html     |/home/aroullea/data/wordpress |
 
 Data stored in these directories is preserved across:
 	- Container restarts
