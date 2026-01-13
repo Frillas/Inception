@@ -36,11 +36,11 @@ This directories are mounted as bind volumes inside containers to ensure data pe
 
 ### 3.2 Configuration File
 
-Each service has its own configuration directory under requirements/, for exemple:
-	- requirements/nginx/conf
-	- requirements/mariadb/conf
-	- requirements/wordpress/conf
-	- requirements/bonus
+Each service has its own configuration directory under requirements/:
+- requirements/nginx/conf
+- requirements/mariadb/conf
+- requirements/wordpress/conf
+- requirements/bonus
 
 Configuration files include:
 	- Nginx virtual host configuration
