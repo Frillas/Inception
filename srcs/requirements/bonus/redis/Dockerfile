@@ -1,5 +1,7 @@
-FROM redis:alpine3.22
+FROM alpine:3.22
+
+RUN apk update && apk add --no-cache redis
 
 EXPOSE 6379
 
-CMD ["redis-server", "--save", "60", "1", "--loglevel", "warning"]
+CMD ["redis-server", "--protected-mode", "no"]
