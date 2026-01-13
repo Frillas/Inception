@@ -74,7 +74,7 @@ make			# build and start the project
 make up			# same as make
 make stop		# stop containers without removing them
 make start		# start stopped containers
-make restart		# restart containers (entrypoints re-executed)
+make restart	# restart containers (entrypoints re-executed)
 make down		# stop and remove containers, networks, volumes
 make clean		# remove containers, images, volumes
 make fclean		# Full cleanup including orphan resources
