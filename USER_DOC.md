@@ -26,15 +26,15 @@ The project deploys a complete Docker-based infrastructure composed of the follo
 	- FTP server allowing file transfers to the WordPress directory.
 
 - **Adminer**
-  Web interface to manage and inspect the MariaDB database.
+  	- Web interface to manage and inspect the MariaDB database.
 
 - **Netdata**
-  Real-time monitoring tool for system and Docker containers.
+	- Real-time monitoring tool for system and Docker containers.
 
 - **Website**
-  A simple static website served via Nginx.
+	- A simple static website served via Nginx.
   
-  All services run in isolated Docker containers and communicate through a private Docker network.
+All services run in isolated Docker containers and communicate through a private Docker network.
 
 ---
 
