@@ -130,8 +130,8 @@ Persistent data is handled using bind-mounted volumes.
 |WordPress  |/vat/www/html     |/home/aroullea/data/wordpress |
 
 Data stored in these directories is preserved across:
-	- Container restarts
-	- Image rebuilds
-	- Docker Compose down/up cycles
+- Container restarts
+- Image rebuilds
+- Docker Compose down/up cycles
 
 Redis does not require persistent storage for correct operation and can run without a volume.
