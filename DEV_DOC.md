@@ -3,8 +3,6 @@
 This Document explains how a developer can set up, build, run and maintain the **Inception project.**
 It focuses on environment configuration, Docker infrastructur, data persistence and container management.
 
----
-
 ## 1. Project Overview
 
 Inception is a Docker-based infrastructure project composed of multiple interconnected services.
@@ -16,16 +14,12 @@ The infrastructure relies on:
 	- Persistent volumes for critical data
 	- Environment variables for configuration
 
----
-
 ## 2. Prerequisites
 
 - Docker
 - Make
 
 The project has been developed and tested on Linux.
-
----
 
 ## 3. Environment setup
 
@@ -70,22 +64,20 @@ The .env file is:
 
 This approache avoids hardcodind secrets in images or configuration files.
 
----
-
 ## 4. Build and Launch Process
 
 ### 4.1 Using the Makefile
 
 The Makefile act as a wrapper around Docker Compose commands.
 ```bash
-make		# build and start the project
-make up		# same as make
-make stop	# stop containers without removing them
-make start	# start stopped containers
-make restart	# restart containers (entrypoints re-executed)
-make down	# stop and remove containers, networks, volumes
-make clean	# remove containers, images, volumes
-make fclean	# Full cleanup including orphan resources
+make			# build and start the project
+make up			# same as make
+make stop		# stop containers without removing them
+make start		# start stopped containers
+make restart		# restart containers (entrypoints re-executed)
+make down		# stop and remove containers, networks, volumes
+make clean		# remove containers, images, volumes
+make fclean		# Full cleanup including orphan resources
 ```
 
 ### 4.2 Docker Compose
@@ -98,8 +90,6 @@ Docker Compose is responsible for:
 	- Defining services dependencies
 
 All services are connected to a single bridge network named inception.
-
----
 
 ## 5. Managing Containers and Volumes
 
@@ -130,8 +120,6 @@ Inspect the Docker network:
 docker network inspect inception
 ```
 
----
-
 ## 6. Data Persistence
 
 Persistent data is handled using bind-mounted volumes.
@@ -146,5 +134,3 @@ Data stored in these directories is preserved across:
 	- Docker Compose down/up cycles
 
 Redis does not require persistent storage for correct operation and can run without a volume.
-
----
