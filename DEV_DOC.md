@@ -125,6 +125,7 @@ docker network inspect inception
 Persistent data is handled using bind-mounted volumes.
 
 |**service**|**container path**|**Host Path**                 |
+| :-------- | :--------------- | :--------------------------- |
 |MariaDB    |/var/lib/mysql    |/home/aroullea/data/mariadb   |
 |WordPress  |/vat/www/html     |/home/aroullea/data/wordpress |
 
