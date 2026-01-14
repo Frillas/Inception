@@ -93,6 +93,7 @@ services:
 volumes:
   db_data:
     driver: local
+    name: db_data
     driver_opts:
       type: none
       device: /home/aroullea/data/mariadb
@@ -100,6 +101,7 @@ volumes:
 
   wp_volume:
     driver: local
+    name: wp_volume
     driver_opts:
       type: none
       device: /home/aroullea/data/wordpress
