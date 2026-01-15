@@ -1,7 +1,6 @@
 #!/bin/sh
 set -e
 
-# Attendre que MariaDB soit disponible AVEC authentification
 until /usr/bin/mariadb-admin ping \
     -h"$MYSQL_HOST" \
     -u"$MYSQL_USER" \
@@ -11,7 +10,6 @@ until /usr/bin/mariadb-admin ping \
     sleep 2
 done
 
-# Installer WordPress si pas déjà fait
 if [ ! -f wp-config.php ]; then
     echo "Installing WordPress"
 
@@ -40,10 +38,8 @@ if [ ! -f wp-config.php ]; then
         --allow-root
 fi
 
-# Installer le plugin Redis dans WordPress
 wp plugin install redis-cache --activate --allow-root
 
-# redis est sur le reseau docker, sous le nom redis
 wp config set WP_REDIS_HOST redis --allow-root
 wp config set WP_REDIS_PORT 6379 --allow-root
 
