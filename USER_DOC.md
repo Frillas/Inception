@@ -161,3 +161,12 @@ Functional Checks
 - Adminer can connect to MariaDB
 - FTP allows file upload/download
 - Netdata displays live metrics
+
+## 5. Note
+
+Modifying the database directly, with adminer for example, requires flushing the WordPress cache when Redis is enabled.
+
+```bash
+docker exec -it wordpress sh
+/var/www/html # wp cache flush
+```

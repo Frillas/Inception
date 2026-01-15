@@ -135,3 +135,12 @@ Data stored in these directories is preserved across:
 - Docker Compose down/up cycles
 
 Redis does not require persistent storage for correct operation and can run without a volume.
+
+## Note
+
+Modifying the database directly, with adminer for example, requires flushing the WordPress cache when Redis is enabled.
+
+```bash
+docker exec -it wordpress sh
+/var/www/html # wp cache flush
+```

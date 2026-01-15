@@ -274,6 +274,15 @@ make fclean
 
 ---
 
+## Note
+
+Modifying the database directly, with adminer for example, requires flushing the WordPress cache when Redis is enabled.
+
+```bash
+docker exec -it wordpress sh
+/var/www/html # wp cache flush
+```
+
 ## Ressources
 
 List of classic references related to the topic:
