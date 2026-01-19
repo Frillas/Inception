@@ -10,7 +10,7 @@ chown -R mysql:mysql "$SOCKETDIR"
 if [ ! -d "$DATADIR/mysql" ]; then
     echo "[MariaDB] Initializing database..."
     
-    mysql_install_db \
+    mariadb-install-db \
         --user=mysql \
         --datadir="$DATADIR" \
         --skip-test-db \
