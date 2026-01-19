@@ -6,7 +6,7 @@ COMPOSE_FILE = srcs/docker-compose.yml
 all: up
 
 up:
-	$(COMPOSE) -f $(COMPOSE_FILE) up --build
+	$(COMPOSE) -f $(COMPOSE_FILE) up -d --build
 
 down:
 	$(COMPOSE) -f $(COMPOSE_FILE) down
