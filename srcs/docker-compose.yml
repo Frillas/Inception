@@ -2,6 +2,8 @@ services:
   nginx:
     build: ./requirements/nginx
     container_name: nginx
+    image: nginx
+    pull_policy: never
     ports:
       - "443:443"
     depends_on:
@@ -15,6 +17,8 @@ services:
   wordpress:
     build: ./requirements/wordpress
     container_name: wordpress
+    image: wordpress
+    pull_policy: never
     depends_on:
       - mariadb
     env_file: .env
@@ -27,6 +31,8 @@ services:
   mariadb:
     build: ./requirements/mariadb
     container_name: mariadb
+    image: mariadb
+    pull_policy: never
     env_file: .env
     volumes:
       - db_data:/var/lib/mysql
@@ -37,6 +43,8 @@ services:
   redis:
     build: ./requirements/bonus/redis
     container_name: redis
+    image: redis
+    pull_policy: never
     networks:
       - inception
     restart: always
@@ -44,6 +52,8 @@ services:
   ftp:
     build: ./requirements/bonus/ftp
     container_name: ftp
+    image: ftp
+    pull_policy: never
     env_file:
       - .env
     ports:
@@ -58,15 +68,19 @@ services:
   website:
     build: ./requirements/bonus/website
     container_name: website
+    image: website
+    pull_policy: never
     ports:
       - "8080:80"
     networks:
       - inception
     restart: always
-  
+
   adminer:
     build: ./requirements/bonus/adminer
     container_name: adminer
+    image: adminer
+    pull_policy: never
     ports:
       - "8081:8080"
     networks:
@@ -76,6 +90,8 @@ services:
   netdata:
     build: ./requirements/bonus/netdata
     container_name: netdata
+    image: netdata
+    pull_policy: never
     ports:
       - "19999:19999"
     cap_add:
