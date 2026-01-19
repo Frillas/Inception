@@ -9,7 +9,7 @@ up:
 	$(COMPOSE) -f $(COMPOSE_FILE) up -d --build
 
 down:
-	$(COMPOSE) -f $(COMPOSE_FILE) down
+	$(COMPOSE) -f $(COMPOSE_FILE) down -v
 
 stop:
 	$(COMPOSE) -f $(COMPOSE_FILE) stop
