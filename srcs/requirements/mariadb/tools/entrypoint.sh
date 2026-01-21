@@ -2,19 +2,13 @@
 set -e
 
 DATADIR="/var/lib/mysql"
-SOCKETDIR=$(dirname /var/lib/mysql/mysql.sock)
-
-mkdir -p "$SOCKETDIR"
-chown -R mysql:mysql "$SOCKETDIR"
 
 if [ ! -d "$DATADIR/mysql" ]; then
     echo "[MariaDB] Initializing database..."
     
     mariadb-install-db \
         --user=mysql \
-        --datadir="$DATADIR" \
-        --skip-test-db \
-        --rpm
+        --datadir="$DATADIR"
 
     echo "[MariaDB] Configuring database..."
     /usr/bin/mariadbd --user=mysql --bootstrap --silent-startup << EOF
@@ -38,8 +32,7 @@ else
     echo "[MariaDB] Database already exists, skipping initialization"
 fi
 
-chown -R mysql:mysql "$DATADIR"
-chown -R mysql:mysql /run/mysqld
+chown -R mysql:mysql "$DATADIR" /run/mysqld
 
 echo "[MariaDB] Starting MariaDB server..."
 exec /usr/bin/mariadbd --user=mysql --console
